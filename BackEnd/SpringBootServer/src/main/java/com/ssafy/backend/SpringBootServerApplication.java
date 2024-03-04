@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a7d7e2fd9ccc687201f57faeaa26da79d1c0e13715791fcf75ad0da44ec47715
-size 330
+package com.ssafy.backend;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringBootServerApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringBootServerApplication.class, args);
+	}
+
+}

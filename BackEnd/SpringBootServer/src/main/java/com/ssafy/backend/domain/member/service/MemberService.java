@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:69dfbed4019512ad8477be013e50a9bb4a2584cb109f7d2f07b6ce4604c1d8a2
-size 395
+package com.ssafy.backend.domain.member.service;
+
+import com.ssafy.backend.domain.member.dto.MemberSignupRequestDto;
+
+/**
+ * 회원 관련 서비스 인터페이스 정의.
+ */
+public interface MemberService {
+
+    /**
+     * 회원가입을 처리합니다.
+     *
+     * @param signupRequest 회원가입 요청 데이터
+     */
+    void signupMember(MemberSignupRequestDto signupRequest);
+}
