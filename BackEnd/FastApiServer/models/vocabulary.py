@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5c5e364c73fdd5ce67cc50d44d63aa240d51cab4e3843e50b6bce9ed5c2c475f
-size 428
+# models/vocabulary.py
+from sqlalchemy import Column, BigInteger, String
+from database import Base
+
+class Vocabulary(Base):
+    __tablename__ = "vocabulary"
+
+    vocabulary_id = Column(BigInteger, primary_key=True, index=True)
+    japanese = Column(String(255), nullable=False)
+    korean = Column(String(255), nullable=False)
+    japanese_read = Column(String(255), nullable=False)
+    type = Column(String(30), nullable=True)
