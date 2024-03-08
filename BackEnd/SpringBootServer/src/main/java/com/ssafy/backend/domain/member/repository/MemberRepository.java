@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9f2de8f65434088d2aa47aa3202af5762ed73df8e881c0d4eec041b3f604a76c
-size 424
+package com.ssafy.backend.domain.member.repository;
+
+import com.ssafy.backend.domain.member.entity.Member;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@Repository
+public interface MemberRepository extends JpaRepository<Member, Long> {
+    boolean existsByEmail(String email);
+
+    Optional<Member> findByEmail(String email);
+}
