@@ -1,21 +1,3 @@
-import React from "react";
-import { Global } from "./styles/common/base";
-import { ThemeProvider } from "styled-components";
-import { light } from "./styles/common/themes";
-import { Route, Routes } from "react-router-dom";
-
-// route 컴포넌트
-import Intro from "@/routes/Intro";
-
-function App() {
-  return (
-    <ThemeProvider theme={light}>
-      <Global />
-      <Routes>
-        <Route path="/" element={<Intro />} />
-      </Routes>
-    </ThemeProvider>
-  );
-}
-
-export default App;
+version https://git-lfs.github.com/spec/v1
+oid sha256:4b9c02e52803e6f5844274e52b067a7ad2fdf6f701cf18da2785472eab449d01
+size 558
