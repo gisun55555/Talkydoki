@@ -1,9 +1,3 @@
-package com.ssafy.backend.domain.vocabulary.repository;
-
-import com.ssafy.backend.domain.vocabulary.entity.PersonalVocabulary;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
-@Repository
-public interface PersonalVocabularyRepository extends JpaRepository<PersonalVocabulary, Long> {
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:addb86baee653e64fb958a4368463e0703f857172d271df5a0a325cdd209a500
+size 545
