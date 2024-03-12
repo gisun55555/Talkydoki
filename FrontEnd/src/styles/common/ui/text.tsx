@@ -1,11 +1,3 @@
-import styled from "styled-components";
-
-// 음각 타이틀
-export const NegativeTitle = styled.h1`
-  color: transparent;
-  background: radial-gradient(ellipse, var(--shadow) 50%, var(--shadow-dark)),
-    linear-gradient(to bottom, var(--shadow-dark) 10%, transparent),
-    linear-gradient(to top, var(--shadow-dark) 10%, transparent);
-  background-clip: text;
-  font-weight: 900;
-`;
+version https://git-lfs.github.com/spec/v1
+oid sha256:111c6dafa20989d220449a389051f374c1f339d5d480fd27e2719ee90d15d600
+size 553
