@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:559d4827d4c35e81f02893605ac04242583522efa48ba5506609e47e59c25cf9
-size 323
+version: '0.0.0'
+
+services:
+  jenkins:
+    container_name: jenkins
+    build:
+      context: .
+      dockerfile: jenkins.Dockerfile
+    ports:
+      - "8888:8080"
+      - "50000:50000"
+    volumes:
+      - ./jenkins:/var/jenkins_home
+      - /usr/bin/docker:/usr/bin/docker
+      - /var/run/docker.sock:/var/run/docker.sock
