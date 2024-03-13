@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:21ec71c10a1043da35be3a3d08915b6756317efd2f7abcc77b42a488ac80d767
-size 180
+import styled from "styled-components";
+
+export const KeywordChartWrapper = styled.div`
+  width: 60%;
+
+  @media screen and (max-width: 992px) {
+    width: calc(100% - 3vw);
+  }
+`;
