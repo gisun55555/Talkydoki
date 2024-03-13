@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:37f6738b01c99dbad8fe08ce1131446292c4db36995e7cf343da74cc59d8ed01
-size 444
+package com.ssafy.backend.domain.aichat.dto;
+
+import com.ssafy.backend.domain.aichat.entity.AiChat;
+import com.ssafy.backend.domain.aichat.entity.enums.Sender;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class AiChatCreateRequest {
+    private Sender sender;
+
+    private String content;
+    public AiChat toEntity() {
+        return AiChat.builder()
+                .sender(sender)
+                .build();
+    }
+}
+
+
+
