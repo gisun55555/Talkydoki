@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:09ba66bd2aee013ae08ab6ec7c1cfc44b39951b7979f74353a6a26bd27a6f2fa
-size 3196
+# profile 설정
+# application-{spring:profiles:active}.yml 설정파일에 레벨별로 환경변수 설정
+# 배포 환경에서는 profile을 dev로 변경해서 사용해도 되고, 또는 도커에서 명령어를 직접 입력해 dev로 설정 가능
+spring:
+  profiles:
+    active : local
