@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1c683fd6b12438f8ae286a7e3d0173755db56364cacb45e5dd04afff00a75378
-size 589
+# database.py
+import pandas as pd
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy_utils import database_exists, create_database, drop_database
+
+DATABASE_URL = "mysql+pymysql://ssafy:ssafy@j10c107.p.ssafy.io/talkydoki"
+engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+Base = declarative_base()
