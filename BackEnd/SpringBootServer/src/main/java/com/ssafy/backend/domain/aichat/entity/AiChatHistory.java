@@ -1,19 +1,3 @@
-package com.ssafy.backend.domain.aichat.entity;
-
-import jakarta.persistence.*;
-import lombok.*;
-
-
-@Entity
-@Getter
-@Builder
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor(access = AccessLevel.PROTECTED)
-public class AiChatHistory {
-
-    @Id
-    @Column(columnDefinition = "INT UNSIGNED")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:cd2a4cab57d9b6329252796e8161d6474562f023451a179730d075e2a5890387
+size 762
