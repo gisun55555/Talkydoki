@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0b9f1f8b639caf9903678374da064962d1dbdb5ea91125a54a8d9a7aa9ca6857
-size 470
+package com.ssafy.backend.global.component.websocket;
+
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+@Getter
+@Setter
+@RequiredArgsConstructor
+@ConfigurationProperties(prefix = "spring.rabbitmq")
+public class RabbitMqProps {
+    private final String host;
+    private final int port;
+    private final String username;
+    private final String password;
+}
+
