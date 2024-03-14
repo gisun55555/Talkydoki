@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:490daa61279531161b622376951e5225bf4669c86223db89c5b09d96073a2923
-size 185
+// 유저 프로필 인터페이스
+
+export interface UserInterface {
+  email: string;
+  id: number;
+  name: string;
+  nickname: string;
+  profileImage: string | null;
+  role: string;
+}
