@@ -1,13 +1,3 @@
-import { create } from "zustand";
-
-interface AuthState {
-  isLogin: boolean;
-  //함수 타입지정 매개변수도 타입지정 반환값없어서 void
-  setIsLogin: (isLogin: boolean) => void;
-}
-
-export const useAuthStore = create<AuthState>((set) => ({
-  isLogin: false,
-  setIsLogin: (isLogin) => set(() => ({ isLogin: isLogin })),
-}));
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:cd388ffea3a0f31b86fd22a215202d18b384c98c26cf53a58ee479bc56d5ace4
+size 449
