@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:69132d14e1d2bb63dbe4d145d8c6619575852af0a09e058f2be836c904f4b2b8
-size 321
+package com.ssafy.backend.domain.news.entity.enums;
+
+public enum NewsCategory {
+    SOCIETY,
+    WEATHER_DISASTER,
+    SCIENCE_CULTURE,
+    POLITICS,
+    BUSINESS,
+    INTERNATIONAL,
+    SPORTS,
+    LIFE;
+
+    public static NewsCategory fromName(String roleName) { return NewsCategory.valueOf(roleName.toUpperCase());}
+}
