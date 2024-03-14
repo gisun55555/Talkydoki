@@ -1,22 +1,3 @@
-import styled from "styled-components";
-
-export const Inner = styled.div`
-  width: 100%;
-  height: 100%;
-  position: relative;
-  backdrop-filter: blur(2px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  img.logo {
-    height: 80%;
-  }
-
-  .menuToggle {
-    position: absolute;
-    right: 5vw;
-    font-size: 2rem;
-    color: var(--text);
-  }
-`;
+version https://git-lfs.github.com/spec/v1
+oid sha256:32c7fc28fa1ef6ad98ccd03d484b681836949b184ba5ccd2593576ba0e31bb43
+size 368
