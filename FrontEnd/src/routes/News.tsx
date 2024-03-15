@@ -1,13 +1,3 @@
-// import { useGetNewsList } from "@/api/newsApi";
-import { Wrapper } from "@/styles/common/ui/container";
-import { useGetNewsList } from "@/api/newsApi";
-
-type Props = {};
-
-function News({}: Props) {
-  const { data } = useGetNewsList("SOCIETY");
-
-  return <Wrapper>News</Wrapper>;
-}
-
-export default News;
+version https://git-lfs.github.com/spec/v1
+oid sha256:fdc467b62d347cdf8ed8fe27531f88dd43118ee09cd8588638ae53913ef19f6c
+size 972
