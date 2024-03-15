@@ -1,22 +1,3 @@
-package com.ssafy.backend.domain.aichat.dto;
-
-import com.ssafy.backend.domain.aichat.entity.AiChatRoom;
-import com.ssafy.backend.domain.aichat.entity.enums.Category;
-import com.ssafy.backend.domain.member.repository.MemberRepository;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-
-//@Getter
-//public class AiChatRoomCreateRequest{
-//
-//    private Long userId;
-//
-//    private Category category;
-//
-//}
-
-public record AiChatRoomCreateRequest(
-        Long userId,
-        Category category
-){
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:5fe6feee2b92baeb54c2da38ab494156045e93153329814ddf11a9ffcbe1aeca
+size 510

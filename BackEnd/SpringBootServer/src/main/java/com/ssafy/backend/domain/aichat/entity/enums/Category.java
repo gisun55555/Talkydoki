@@ -1,10 +1,3 @@
-package com.ssafy.backend.domain.aichat.entity.enums;
-
-
-public enum Category {
-    SOCIETY, WEATHER_AND_DISASTER, POLITICS, BUSINESS, GLOBAL, SPORTS, LIFE;
-
-    public static Category fromName(String category) {
-        return Category.valueOf(category.toUpperCase());
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:1d63b6c21d60e1fbfe219cedf321cf76ab6e6481a146d080cfedc33b23eeec25
+size 277

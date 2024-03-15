@@ -1,17 +1,3 @@
-package com.ssafy.backend.domain.aichat.service;
-
-import com.ssafy.backend.domain.aichat.dto.AiChatCreateRequest;
-import com.ssafy.backend.domain.aichat.dto.AiChatInfo;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
-
-public interface AiChatService {
-
-    @Transactional(readOnly=true)
-    public List<AiChatInfo> getAllMessagesByRoomId(Long userId, Long roomId);
-
-    @Transactional
-    public AiChatInfo saveChat(AiChatCreateRequest aiChatCreateRequest);
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:fa7a33cdc6401487733e505bdacc4002295764d9e4d11fc3c5a03503fd632f43
+size 501
