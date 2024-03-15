@@ -1,22 +1,3 @@
-import { customAxios } from "@/util/auth/customAxios";
-import { useQuery } from "@tanstack/react-query";
-
-export const useGetNewsList = (category?: string) => {
-  return useQuery({
-    queryKey: ["getNewsList"],
-    queryFn: () =>
-      customAxios.get("/news/get", {
-        params: {
-          category: category,
-          page: 0,
-          size: 2,
-        },
-      }),
-    select: (res) => {
-      console.log(res);
-      return res;
-    },
-    staleTime: Infinity,
-    gcTime: Infinity,
-  });
-};
+version https://git-lfs.github.com/spec/v1
+oid sha256:32860a901f4bc39a1efdfa79f8007bc4df7f4031adec1039f7bfcd5af79a5b49
+size 1241
