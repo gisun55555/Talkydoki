@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:85372d085c00f0a0f9b9b7899318c08620542d46ed49c4cf7f9e2f7429cc98f9
-size 293
+package com.ssafy.backend.domain.news.service;
+import com.ssafy.backend.domain.news.entity.News;
+import java.util.List;
+
+public interface NewsHadoopService {
+
+    /**
+     * 전체 뉴스를 조회합니다.
+     *
+     * @return 전체 조회된 뉴스
+     */
+    List<News> getAllNews();
+}
