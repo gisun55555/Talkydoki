@@ -1,14 +1,3 @@
-import { getCookie } from "@/util/auth/userCookie";
-import { create } from "zustand";
-
-interface AuthState {
-  isLogin: boolean;
-  //함수 타입지정 매개변수도 타입지정 반환값없어서 void
-  setIsLogin: (isLogin: boolean) => void;
-}
-
-export const useAuthStore = create<AuthState>((set) => ({
-  // isLogin: false,
-  isLogin: getCookie() == undefined ? false : true,
-  setIsLogin: (isLogin) => set(() => ({ isLogin: isLogin })),
-}));
+version https://git-lfs.github.com/spec/v1
+oid sha256:09c46e66a34087befa54b1ca68fa6c571ae10dacad1fe4f4b675f82ae75afab0
+size 600
