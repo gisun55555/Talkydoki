@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:934b63248e6b1c6a2668e9449662b4c0947b80478893ea1a39cfc0cb15008960
-size 269
+// 로그인 시 백엔드로 보낼 요청 데이터
+export interface LoginParams {
+  email: string;
+  password: string;
+}
+
+// 회원가입 시 백엔드로 보낼 요청 데이터
+export interface SignupParams {
+  email: string;
+  password: string;
+  name: string;
+  nickname: string;
+}
+
+export interface SocialLoginPayload {
+  provider: string;
+  code: string;
+}
