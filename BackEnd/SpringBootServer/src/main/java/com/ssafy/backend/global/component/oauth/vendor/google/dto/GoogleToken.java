@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9f975dd45e1d5647275feb986211fb8b6a647ed39c872e688a35f7dc77d7f614
-size 421
+package com.ssafy.backend.global.component.oauth.vendor.google.dto;
+
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+public record GoogleToken(
+        String accessToken,
+        String expiresIn,
+        String refreshToken,
+        String scope,
+        String tokenType
+) {
+
+}

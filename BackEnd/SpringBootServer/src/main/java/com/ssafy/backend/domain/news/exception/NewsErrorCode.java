@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0d3440d0b13fa80089e6408e8617263ca783e00d13d4d33fd6a39557f6f79ea7
-size 398
+package com.ssafy.backend.domain.news.exception;
+
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+
+@Getter
+@RequiredArgsConstructor
+public enum NewsErrorCode {
+    EXIST_NEWS_SRC_ORIGIN(HttpStatus.INTERNAL_SERVER_ERROR, "이미 등록된 뉴스입니다.");
+
+    private final HttpStatus httpStatus;
+    private final String errorMessage;
+}
