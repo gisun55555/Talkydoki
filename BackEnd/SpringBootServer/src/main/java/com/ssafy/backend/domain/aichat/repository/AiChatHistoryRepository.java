@@ -1,11 +1,3 @@
-package com.ssafy.backend.domain.aichat.repository;
-
-import com.ssafy.backend.domain.aichat.entity.AiChat;
-import com.ssafy.backend.domain.aichat.entity.AiChatHistory;
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import java.util.List;
-
-public interface AiChatHistoryRepository extends JpaRepository<AiChatHistory,Long> {
-    List<AiChat> findByAiChatRoomId(Long roomId);
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:bd430dee7d58e3374a34dcd87ca527ee528b0e9c2697fc1a0db1ed53a6c5e02b
+size 392

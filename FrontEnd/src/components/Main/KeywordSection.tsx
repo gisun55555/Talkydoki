@@ -1,15 +1,3 @@
-import TodaysVoca from "./RandomVoca";
-import UserKeywordChart from "./UserKeywordChart";
-import { SectionWrapper } from "@/styles/common/ui/container";
-
-// 나의 키워드 / 오늘의 랜덤 단어 표시 라인
-function KeywordSection() {
-  return (
-    <SectionWrapper>
-      <UserKeywordChart />
-      <TodaysVoca />
-    </SectionWrapper>
-  );
-}
-
-export default KeywordSection;
+version https://git-lfs.github.com/spec/v1
+oid sha256:460f9fc12bf91080bfc4dc0cac71152d47b43629a23eafed941f68407a517107
+size 383

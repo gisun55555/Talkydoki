@@ -1,15 +1,3 @@
-package com.ssafy.backend.global.component.jwt.security;
-
-import com.ssafy.backend.domain.member.entity.enums.MemberRole;
-import lombok.Builder;
-
-@Builder
-public record MemberLoginActive(
-        Long id,
-        String email,
-        String name,
-        String nickname,
-        String profileImage,
-        MemberRole role
-) {
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:23d4373086d15422f390881739f0c8ecf4082ec1b49325999a5bdb08551c0ad5
+size 332

@@ -1,8 +1,3 @@
-#!/bin/bash
-
-# OpenJDK 17 설치
-sudo apt update -y
-sudo apt install -y openjdk-17-jdk
-
-# 설치된 Java 버전 확인
-java -version
+version https://git-lfs.github.com/spec/v1
+oid sha256:b9c2ea98cc8e9b7b034fb9eb835e0422e843ef2f3c94f73310e0522608728895
+size 133

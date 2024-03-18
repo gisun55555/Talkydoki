@@ -1,10 +1,3 @@
-package com.ssafy.backend.domain.member.service;
-
-import com.ssafy.backend.domain.member.dto.MemberLoginResponse;
-import com.ssafy.backend.global.component.oauth.vendor.enums.OAuthDomain;
-
-public interface OAuthService {
-    String provideAuthCodeRequestUrlOAuth(OAuthDomain oAuthDomain);
-
-    MemberLoginResponse loginOAuth(OAuthDomain oAuthDomain, String authCode);
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:d98c1dcc01abde81ec4b2f7387d3af9427d3c239e2a7984354a96a8959692435
+size 370

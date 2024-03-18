@@ -1,15 +1,3 @@
-package com.ssafy.backend.domain.member.dto;
-
-import com.ssafy.backend.domain.member.entity.enums.MemberRole;
-import lombok.Builder;
-
-@Builder
-public record MemberInfo(
-        Long id,
-        String email,
-        String name,
-        String nickname,
-        String profileImage,
-        MemberRole role
-) {
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:56d3c4de641e704ec6a55d8ef6700447f5e76b54b5d496dbce5f822222bfcfa3
+size 313
