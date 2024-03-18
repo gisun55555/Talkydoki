@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9f7e2c74478051551ae395ef351ee16a20d86e99b1b44c8d4ce3758f7e269d53
-size 94
+selenium==4.18.1
+webdriver-manager==4.0.1
+googletrans==4.0.0rc1
+requests==2.31.0
