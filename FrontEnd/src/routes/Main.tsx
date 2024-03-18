@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:af3fb10054e2a20946d1178204df85d040f6e9a3f8cd31d3bebf70af66708e87
-size 382
+import { Wrapper } from "@/styles/common/ui/container";
+
+import ChatIcons from "@/components/Main/ChatIcons";
+import TodaysNews from "@/components/Main/TodaysNews";
+import KeywordSection from "@/components/Main/KeywordSection";
+
+function Main() {
+  return (
+    <Wrapper>
+      <TodaysNews />
+      <ChatIcons />
+      <KeywordSection />
+    </Wrapper>
+  );
+}
+
+export default Main;

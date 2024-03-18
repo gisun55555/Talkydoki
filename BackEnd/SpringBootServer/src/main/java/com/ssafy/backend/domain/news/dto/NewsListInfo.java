@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0f31df74c292fb6dc58373552c5fc276e853884840929a37fa1f7166a5fd2ae1
-size 336
+package com.ssafy.backend.domain.news.dto;
+
+import com.ssafy.backend.domain.news.entity.enums.NewsCategory;
+import lombok.Builder;
+
+import java.time.LocalDateTime;
+
+@Builder
+public record NewsListInfo(
+        Long id,
+        String title,
+        NewsCategory category,
+        LocalDateTime writeDate,
+        String srcOrigin
+) {
+}
