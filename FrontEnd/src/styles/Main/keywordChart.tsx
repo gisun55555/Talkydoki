@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4948c57b0c9bb3e50befa56eb4e03a0ccd7c2939383eff0e2a7f025339f35baf
-size 268
+import styled from "styled-components";
+import { Card } from "../common/ui/card";
+
+export const KeywordChartWrapper = styled(Card)`
+  width: 70%;
+  height: 50vh;
+  margin: 0;
+
+  @media screen and (max-width: 992px) {
+    width: calc(100% - 3vw);
+    margin: 0;
+  }
+`;
