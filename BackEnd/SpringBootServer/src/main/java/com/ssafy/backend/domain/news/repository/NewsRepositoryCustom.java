@@ -1,12 +1,3 @@
-package com.ssafy.backend.domain.news.repository;
-
-import com.ssafy.backend.domain.news.dto.NewsListInfo;
-import com.ssafy.backend.domain.news.entity.News;
-import com.ssafy.backend.domain.news.entity.enums.NewsCategory;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Slice;
-import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface NewsRepositoryCustom {
-    Slice<NewsListInfo> findNewsListInfo(NewsCategory category, Pageable pageable);
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:e5738e54342a94975b5d92acab9b835678b34e2649cfbf19878c6378795857a6
+size 504

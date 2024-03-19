@@ -1,9 +1,3 @@
-package com.ssafy.backend.domain.aichat.service;
-
-import com.ssafy.backend.domain.aichat.dto.AiChatMessage;
-import com.ssafy.backend.domain.aichat.dto.api.OpenAiMessage;
-import reactor.core.publisher.Mono;
-
-public interface OpenAiService {
-    public Mono<String> sendMessage(AiChatMessage createRequest);
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:56166427abb5163976be31bf9ac878ebecaac65a883e102c581538ca9d972b71
+size 308
