@@ -1,14 +1,3 @@
-package com.ssafy.backend.domain.news.exception;
-
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-
-@Getter
-@RequiredArgsConstructor
-public enum NewsErrorCode {
-    EXIST_NEWS_SRC_ORIGIN(HttpStatus.INTERNAL_SERVER_ERROR, "이미 등록된 뉴스입니다.");
-
-    private final HttpStatus httpStatus;
-    private final String errorMessage;
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:f74a11940eeb53a05ca582ef1ac832d14f575a16bab0cd63f5d0a866b6e34671
+size 576
