@@ -1,13 +1,3 @@
-package com.ssafy.backend.domain.news.service;
-
-import com.ssafy.backend.domain.news.dto.KeywordPostRequest;
-
-public interface KeywordService {
-
-    /**
-     * 일본어 키워드를 저장합니다.
-     *
-     * @param keywordPostRequest 키워드 데이터
-     */
-    void insertKeyword(KeywordPostRequest keywordPostRequest);
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:bba37c74ae08554dd6593131eeedb9e69ffa4e293c54098fc82a51e88589d7aa
+size 333
