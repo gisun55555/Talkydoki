@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:384353eb2412dd79b98946b6fa9a520be4248b21e290f39e45187e47ed1b83ec
-size 406
+import { ChatRoomContainer } from "@/styles/Aichat/AiChatRoom";
+import ChatHeader from "./ChatHeader";
+import ChatMain from "./ChatMain";
+import ChatFooter from "./ChatFooter";
+
+type Props = {};
+
+function ChatRoom({}: Props) {
+  return (
+    <>
+      <ChatRoomContainer>
+        <ChatHeader />
+        <ChatMain />
+        <ChatFooter />
+      </ChatRoomContainer>
+    </>
+  );
+}
+
+export default ChatRoom;
