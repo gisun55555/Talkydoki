@@ -1,7 +1,3 @@
-import defaultImage from "@/assets/images/default_profile.png";
-
-const { VITE_REACT_API_URL } = import.meta.env;
-
-export const getProfileImage = (url: string | null) => {
-  return url ? `${VITE_REACT_API_URL}${url}` : defaultImage;
-};
+version https://git-lfs.github.com/spec/v1
+oid sha256:8424f8c734ba5951e107c9f06e4e52746a6beb44327a6a206473b03e930a668f
+size 165
