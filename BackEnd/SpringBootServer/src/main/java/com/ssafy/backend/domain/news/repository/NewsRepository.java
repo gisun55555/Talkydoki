@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b204d3e28cb31b7937711b8686bd5db9dc0a1748a831255ffe62e5a93d457aa7
-size 367
+package com.ssafy.backend.domain.news.repository;
+
+import com.ssafy.backend.domain.news.entity.News;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface NewsRepository extends JpaRepository<News, Long>, NewsRepositoryCustom {
+    boolean existsBySrcOrigin(String srcOrigin);
+}
