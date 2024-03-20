@@ -1,15 +1,3 @@
-package com.ssafy.backend.domain.aichat.service;
-
-import com.ssafy.backend.domain.aichat.dto.*;
-import com.ssafy.backend.domain.aichat.entity.enums.AiChatCategory;
-import reactor.core.publisher.Mono;
-
-public interface AiChatService {
-
-    // AI 회화 채팅방 만들기
-    AiChatRoomCreateResponse creatAiChatRoom(Long memberId, AiChatCategory category);
-
-    // AI 회화 채팅 메시지 보내기
-    void sendMessageAiChat(Long memberId, Long roomId, AiChatMessage messageRequest);
-
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:c7432759b976cb0b7e832394f634db0d47fd4c1ee3d2d8b9d760c5f0f2e97c08
+size 587
