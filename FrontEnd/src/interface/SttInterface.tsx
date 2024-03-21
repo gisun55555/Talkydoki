@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2dbef07615c0d02fe9748e7137aece56d34df861f21279a4f4429caa2928d29a
-size 389
+// 환경 변수를 불러오고 내보내는 설정 파일
+
+interface EnvConfig {
+  awsAccessKeyId: string;
+  awsSecretAccessKey: string;
+  awsRegion: string;
+}
+
+const env: EnvConfig = {
+  awsAccessKeyId: import.meta.env.VITE_AWS_ACCESS_KEY_ID,
+  awsSecretAccessKey: import.meta.env
+    .VITE_AWS_ACCESS_KEY_ID_APP_AWS_SECRET_ACCESS_KEY,
+  awsRegion: "us-east-1",
+};
+
+export default env;
