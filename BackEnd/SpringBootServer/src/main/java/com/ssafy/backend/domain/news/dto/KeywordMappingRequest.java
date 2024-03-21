@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e57d7790c93516ca8eb6f7b590c51cff4616c4ba7bb20295016a324dbef95521
-size 589
+package com.ssafy.backend.domain.news.dto;
+
+import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class KeywordMappingRequest {
+
+    private Long newsId;
+
+    private String japanese;
+
+    private Float weight;
+}
