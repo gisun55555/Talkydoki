@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ed4adb8892a0a0c388717e1c046d30a4fd5d2a553cb87c047fc1fb217799d118
-size 358
+package com.ssafy.backend.domain.news.repository;
+
+import com.ssafy.backend.domain.news.entity.NewsImage;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface NewsImageRepository extends JpaRepository<NewsImage, Long> {
+    boolean existsByImageUrl(String imageUrl);
+}

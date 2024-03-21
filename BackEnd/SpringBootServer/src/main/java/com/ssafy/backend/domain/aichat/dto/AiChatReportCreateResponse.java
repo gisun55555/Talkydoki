@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bb0eea91564963f3293db4a8fc769dbf8e1564d5e2c686f81e9ef3489d980529
-size 346
+package com.ssafy.backend.domain.aichat.dto;
+
+import lombok.Builder;
+
+@Builder
+public record AiChatReportCreateResponse(
+        Long id,
+        Long aiChatRoomId,
+        String conversationSummary,
+        Float vocabularyScore,
+        Float grammarScore,
+        Float wordScore,
+        Float FluencyScore,
+        Float ContextScore
+) {
+}
