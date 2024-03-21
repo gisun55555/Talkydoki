@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d8394812c0455e2a643928b72927d9817afe350bbe367a6a7b24cc964c3b16e0
-size 461
+import styled from "styled-components";
+
+export const CategorySection = styled.section`
+  width: 100%;
+  padding: 0 1.5vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+`;
+
+export const MenuBarSection = styled.section`
+  width: 100%;
+  height: 5vh;
+  padding: 0 3vw;
+  text-align: right;
+`;
+
+export const NewsSection = styled.section`
+  padding: 1vh 1.5vw;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+`;
