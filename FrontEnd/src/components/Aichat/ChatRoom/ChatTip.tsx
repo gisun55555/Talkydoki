@@ -1,16 +1,3 @@
-import { ChatTipContainer } from "@/styles/Aichat/AiChatRoom";
-
-type Props = {};
-
-function ChatTip({}: Props) {
-  return (
-    <ChatTipContainer>
-      <div>녹음버튼을 누르고 말해주세요</div>
-      <div>TIP 다음과 같이 말해보세요</div>
-
-      <div>아리가또 고자이 마스(이부분 API 받아올 예정)</div>
-    </ChatTipContainer>
-  );
-}
-
-export default ChatTip;
+version https://git-lfs.github.com/spec/v1
+oid sha256:373257373ab3303c0b5addb8f7359e949e7e51a32ac00c1dac0dd70bee1b857f
+size 951
