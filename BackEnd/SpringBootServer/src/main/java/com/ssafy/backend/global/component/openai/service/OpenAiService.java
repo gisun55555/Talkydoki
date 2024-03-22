@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5d85830a619e44849ee342e089ceebb766459962d9a55df5ef793cf323640829
-size 738
+package com.ssafy.backend.global.component.openai.service;
+
+import com.ssafy.backend.domain.aichat.dto.AiChatMessage;
+import reactor.core.publisher.Mono;
+
+public interface OpenAiService {
+
+    Mono<String> sendPromptToGpt(AiChatMessage aiChatMessage);
+
+}
