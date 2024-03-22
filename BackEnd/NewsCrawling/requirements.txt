@@ -1,4 +1,3 @@
-selenium==4.18.1
-webdriver-manager==4.0.1
-googletrans==4.0.0rc1
-requests==2.31.0
+version https://git-lfs.github.com/spec/v1
+oid sha256:81d522e2260251fffcf23f34accf5fce4f52e97425ecb7e26512ddc27a5e817a
+size 64
