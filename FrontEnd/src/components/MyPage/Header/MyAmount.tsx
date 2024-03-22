@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2397aa02906a153fc8d4485e57939da554cc8279bd5227ec1273d2d413e1526f
-size 306
+import InfoDisplay from "./InfoDisplay";
+
+type Props = {};
+
+function MyAmount({}: Props) {
+  return (
+    <div className="MyAmountContainer">
+      <InfoDisplay label="읽은 뉴스 문장" count="14" />
+      <InfoDisplay label="진행한 회화" count="14" />
+    </div>
+  );
+}
+
+export default MyAmount;

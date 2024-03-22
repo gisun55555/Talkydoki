@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8e7a389439d13187551acd96f0c865346df3965f16dc5cd0fb98fc4a6fce9e55
-size 370
+package com.ssafy.backend.domain.news.repository;
+
+import com.ssafy.backend.domain.news.entity.NewsShadowing;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+
+public interface NewsShadowingRepository extends JpaRepository<NewsShadowing, Long> {
+    Optional<NewsShadowing> findByNewsIdAndMemberId(Long newsId, Long memberId);
+}
