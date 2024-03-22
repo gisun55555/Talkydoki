@@ -1,17 +1,3 @@
-import { Wrapper } from "@/styles/common/ui/container";
-import { useNavigate } from "react-router-dom";
-
-type Props = {};
-
-function MyPage({}: Props) {
-  const navigate = useNavigate();
-
-  return (
-    <Wrapper>
-      <button onClick={() => navigate("myvoca")}>단어장</button>
-      <button onClick={() => navigate("update")}>프로필 수정</button>
-    </Wrapper>
-  );
-}
-
-export default MyPage;
+version https://git-lfs.github.com/spec/v1
+oid sha256:de70a4e842ee82df6817a493d4adbf1dbbf455f22fa2c5b695d8734ec44c164f
+size 752
