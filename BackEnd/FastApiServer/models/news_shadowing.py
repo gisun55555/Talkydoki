@@ -1,3 +1,11 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dfe3e7b4b2c66088cbda03d805a6248b565aac9113792aa4605667825e7be797
-size 481
+from sqlalchemy import Column, Integer, ForeignKey
+from sqlalchemy.orm import relationship
+from database import Base
+
+class NewsShadowing(Base):
+    __tablename__ = "news_shadowing"
+    id = Column(Integer, primary_key=True, index=True)
+    news_id = Column(Integer, ForeignKey("news.id"))
+    news = relationship("News", back_populates="news_shadowing")
+    member_id = Column(Integer, ForeignKey("member.id"))
+    member = relationship("Member", back_populates="news_shadowings")
