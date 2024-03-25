@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5359dd55e55da3c8b5e9c892455965750e5bb16042983444da7623c439ccdc49
-size 503
+import styled from "styled-components";
+
+interface ButtonProps {
+  width?: string;
+  height?: string;
+}
+
+export const BlueButton = styled.button<ButtonProps>`
+  background-color: var(--blue);
+  width: ${({ width }) => width || "120px"}; /* 기본값은 120px */
+  height: ${({ height }) => height || "40px"}; /* 기본값은 40px */
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0px 1px 5px 3px var(--shadow);
+  font-family: "ScoreDream";
+  font-weight: 500;
+`;

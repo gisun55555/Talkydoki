@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:72a3090afb25c5915578a38968eafc2ccbd6a2e7228137b81b33494fa9c809fc
-size 436
+# models/news_image.py
+from sqlalchemy import Column, BigInteger, String, ForeignKey
+from sqlalchemy.orm import relationship
+from database import Base
+
+class NewsImage(Base):
+    __tablename__ = "news_image"
+
+    id = Column(BigInteger, primary_key=True, index=True)
+    image_url = Column(String(255), nullable=False)
+    news_id = Column(BigInteger, ForeignKey("news.id"))
+    news = relationship("News", back_populates="news_images")
