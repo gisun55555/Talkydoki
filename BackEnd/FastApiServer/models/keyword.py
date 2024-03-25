@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c8c6d2a07a91799c300752c4f224d8a5b9027c7f87e2c3e440806d0ecd2fb7f9
-size 476
+# models/keyword.py
+from sqlalchemy import Column, BigInteger, String
+from sqlalchemy.orm import relationship
+from database import Base
+
+class Keyword(Base):
+    __tablename__ = "keyword"
+
+    id = Column(BigInteger, primary_key=True, index=True)
+    japanese = Column(String(255), nullable=False)
+    news_keyword_mappings = relationship("NewsKeywordMapping", back_populates="keyword")
+    news_keyword_histories = relationship("NewsKeywordHistory", back_populates="keyword")
