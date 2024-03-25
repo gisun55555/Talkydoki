@@ -1,18 +1,3 @@
-version: "0.0.0"
-
-services:
-  talkydoki_backend_fastapi:
-    container_name: talkydoki_backend_fastapi
-    build:
-      context: ./BackEnd/FastApiServer
-      dockerfile: Dockerfile
-    image: talkydoki_backend_fastapi_img
-    volumes:
-      - /home/ubuntu/data-processing:/app/data
-    ports:
-      - "8000:8000"
-    networks:
-      - talkydoki_net
-
-networks:
-  talkydoki_net:
+version https://git-lfs.github.com/spec/v1
+oid sha256:17c4c593358c82b6b7db8dadcc942456aa4f045e8db09a6f3da088a0ad81c3c5
+size 655
