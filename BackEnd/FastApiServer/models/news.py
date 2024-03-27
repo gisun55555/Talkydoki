@@ -1,12 +1,3 @@
-# models/news.py
-from sqlalchemy import Column, BigInteger, String, Text
-from database import Base
-
-class News(Base):
-    __tablename__ = "news"
-
-    id = Column(BigInteger, primary_key=True, index=True)
-    title = Column(String(255), nullable=False)
-    category = Column(String(255), nullable=False)
-    content = Column(Text, nullable=False)
-    summary = Column(Text, nullable=False)
+version https://git-lfs.github.com/spec/v1
+oid sha256:3a213343ad6aebe57468b61e2fc2840a8898d17e99891cc255c4be17ad715984
+size 949
