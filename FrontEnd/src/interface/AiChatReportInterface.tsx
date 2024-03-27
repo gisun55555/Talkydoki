@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fad13c5714966b6676fb5c30f8cd5ca3ae46f93e3f19cac89706b9c9e31fb17c
-size 497
+export interface reportDetailInterface {
+  id: number;
+  category: string;
+  conversationSummary: string;
+  vocabularyScore: number;
+  grammarScore: number;
+  wordScore: number;
+  FluencyScore: number;
+  ContextScore: number;
+}
+
+export interface chatWithFeedbackInterface {
+  chatId: number;
+  sender: string;
+  message: string;
+  feedback: string | null;
+}
+
+export interface chatReportResponseInterface {
+  reportDetail: reportDetailInterface;
+  chatsWithFeedback: chatWithFeedbackInterface[];
+}
