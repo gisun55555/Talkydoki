@@ -1,10 +1,3 @@
-package com.ssafy.backend.domain.news.repository;
-
-import com.ssafy.backend.domain.news.entity.NewsShadowing;
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import java.util.Optional;
-
-public interface NewsShadowingRepository extends JpaRepository<NewsShadowing, Long> {
-    Optional<NewsShadowing> findByNewsIdAndMemberId(Long newsId, Long memberId);
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:c705b22fe4fb7511134cfbb8210b7b3012706d5370e59b4fa61729166650638f
+size 412
