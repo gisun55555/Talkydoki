@@ -1,16 +1,3 @@
-// 유저 프로필 인터페이스
-
-export interface UserInterface {
-  email: string;
-  id: number;
-  name: string;
-  nickname: string;
-  profileImage: string | null;
-  role: string;
-}
-
-// 유저 키워드 인터페이스
-export interface UserKeywordInterface {
-  keyword: string;
-  readCount: number;
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:72465a04d8d4e0217a55b53e8080a27532da7fda1a9f4515ff0c9a8e86391c6a
+size 1165
