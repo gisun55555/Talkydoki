@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dd980a63953a150d60d77c0d51d64cdcbf6f2cea12ab5e097e9e3fe01b2524c7
-size 426
+// 메시지 데이터  인터페이스
+export interface MessageData {
+  sender: string;
+  japanese: string;
+  korean: null | string;
+}
+
+export interface SendMessagePayload {
+  roomId: number | string | null; // roomId가 숫자 형태일 수도 있음을 고려
+  data: MessageData;
+}
+
+export interface ChatStartPayload {
+  roomId: string | number; // roomId가 숫자 형태일 수도 있음을 고려
+  catagory: string;
+}

@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:24bfc649c827877152aa5ce36b5503dfdb5480bf6c67cf7818fb6ca7184306a3
-size 446
+import { IntroWrapper } from "@/styles/Intro/containers";
+import IntroSidebar from "@/components/Intro/IntroSidebar";
+import IntroContents from "@/components/Intro/IntroContents";
+import IntroBackground from "@/components/Intro/IntroBackground";
+
+type Props = {};
+
+function Intro({}: Props) {
+  return (
+    <IntroWrapper>
+      <IntroSidebar />
+      <IntroContents />
+      <IntroBackground />
+    </IntroWrapper>
+  );
+}
+
+export default Intro;
