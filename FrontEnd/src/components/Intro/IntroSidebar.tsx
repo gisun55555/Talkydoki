@@ -1,16 +1,3 @@
-import { IntroSidebarWrapper } from "@/styles/Intro/containers";
-import TextLogo from "@/assets/images/logo_text_light.png";
-import ImageLogo from "@/assets/images/logo_face2.png";
-
-type Props = {};
-
-function IntroSidebar({}: Props) {
-  return (
-    <IntroSidebarWrapper>
-      <img src={TextLogo} alt="logo" className="textLogo" />
-      <img src={ImageLogo} alt="logo" className="imageLogo" />
-    </IntroSidebarWrapper>
-  );
-}
-
-export default IntroSidebar;
+version https://git-lfs.github.com/spec/v1
+oid sha256:5dd6cc54b5768495de1b4e874b376197eeea78562e70919268a95d03146c880e
+size 1507
