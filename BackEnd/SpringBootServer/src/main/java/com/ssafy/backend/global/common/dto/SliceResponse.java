@@ -1,21 +1,3 @@
-package com.ssafy.backend.global.common.dto;
-
-import lombok.Getter;
-import org.springframework.data.domain.Slice;
-
-import java.util.List;
-
-@Getter
-public class SliceResponse<T> {
-    private List<T> contents;
-    private Boolean hasNext;
-
-    public static <T> SliceResponse<T> of(Slice<T> items) {
-        return new SliceResponse<>(items);
-    }
-
-    private SliceResponse(Slice<T> items) {
-        this.contents = items.getContent();
-        this.hasNext = items.hasNext();
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:68603dd8b9b0e2abea05ffa7589209aceb3065526a11fa18974936b6ba8b44af
+size 1843
