@@ -1,11 +1,3 @@
-package com.ssafy.backend.global.component.openai.dto;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
-public record Conversation(
-        @JsonProperty("gpt_japanese") String gptJapaneseResponse,
-        @JsonProperty("gpt_korean") String gptKoreanResponse,
-        @JsonProperty("user_tip_japanese") String userJapaneseResponse,
-        @JsonProperty("user_tip_korean") String userKoreanResponse
-) {
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:7c84c7fed09228a8b9f4cddc33e731f99afc37b8e86958b2f2cad8c85a10d5c3
+size 412
