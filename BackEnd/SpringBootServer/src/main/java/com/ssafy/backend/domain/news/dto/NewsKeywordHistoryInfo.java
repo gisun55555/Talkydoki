@@ -1,16 +1,3 @@
-package com.ssafy.backend.domain.news.dto;
-
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-public class NewsKeywordHistoryInfo {
-    Long memberId;
-    Long keywordId;
-    Integer readCount;
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:491bbd773b48eb5d4567aa8672d09a263f9c4129f586d873b1cad4cbc5efd051
+size 313

@@ -1,16 +1,3 @@
-import { ReportFlexBox } from "@/styles/Aichat/AiChatReport";
-import { Wrapper } from "@/styles/common/ui/container";
-
-type Props = {};
-
-function AiChatReport({}: Props) {
-  return (
-    <>
-      <Wrapper>
-        <ReportFlexBox>리포트 페이지 추가 예정</ReportFlexBox>
-      </Wrapper>
-    </>
-  );
-}
-
-export default AiChatReport;
+version https://git-lfs.github.com/spec/v1
+oid sha256:107992d57f1453b8025e45747d16e219721b6a2af22c716d4037ab5e9a7b1e1c
+size 341
