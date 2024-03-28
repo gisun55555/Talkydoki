@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:98a4bba0052a9277fe3d4ff16b065bfb5960debbad212b61bfc287813e5d37f0
-size 325
+import { IntroBackgroundWrapper } from "@/styles/Intro/containers";
+import BackgroundSection from "./contents/BackgroundSection";
+
+type Props = {};
+
+function IntroBackground({}: Props) {
+  return (
+    <IntroBackgroundWrapper>
+      <BackgroundSection />
+    </IntroBackgroundWrapper>
+  );
+}
+
+export default IntroBackground;

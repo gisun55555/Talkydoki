@@ -1,18 +1,3 @@
-import { NegativeTitle } from "@/styles/common/ui/text";
-import TimerCarousel from "@/components/Main/NewsSection/TimerCarousel";
-import { useRecommendNews } from "@/api/newsApi";
-
-function TodaysNews() {
-  const { data } = useRecommendNews();
-
-  if (!data) return <></>;
-
-  return (
-    <>
-      <NegativeTitle>오늘의 뉴스</NegativeTitle>
-      <TimerCarousel width={100} height={40} news={data} />
-    </>
-  );
-}
-
-export default TodaysNews;
+version https://git-lfs.github.com/spec/v1
+oid sha256:42b640753e1369345bcc4a3260bf2de14624c152c2c99ec467c2bf469c09d6fc
+size 502
