@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:06aac245eefec08c9ebbf5b6907926b52e70ef41514cf65e6cce649976553187
-size 388
+import { BadgeContainer } from "@/styles/Mypage/ui";
+
+type Props = {
+  icon: string;
+  tier: string;
+};
+
+function Badge({ icon, tier }: Props) {
+  return (
+    <BadgeContainer>
+      <div className="myRank">현재 나의 등급은</div>
+      <div className="tierText">{tier}</div>
+      <img src={icon} alt="tier" className="badge" />
+    </BadgeContainer>
+  );
+}
+
+export default Badge;
