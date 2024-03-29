@@ -1,22 +1,3 @@
-import { PacmanLoader } from "react-spinners";
-
-type Props = {};
-
-function Loading({}: Props) {
-  return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "100vh",
-      }}
-    >
-      <h1 style={{ marginBottom: "20px" }}>잠시만 기다려주세요</h1>
-      <PacmanLoader color="#0000FF" size={50} />
-    </div>
-  );
-}
-
-export default Loading;
+version https://git-lfs.github.com/spec/v1
+oid sha256:0ad255473fef7deeda9566f288d501421cd00ddeee97a45f5fa0c59031f876f4
+size 823
