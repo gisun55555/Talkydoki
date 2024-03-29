@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:05d7785e8b38b9ad6d5c78366e795511b8bdda3d125ea1346c64852977855ee3
-size 389
+package com.ssafy.backend.domain.attendance.service;
+
+import com.ssafy.backend.domain.attendance.dto.AttendanceInfo;
+import com.ssafy.backend.domain.attendance.entity.enums.AttendanceType;
+
+import java.util.List;
+
+public interface AttendanceService {
+
+    void createAttendance(Long memberId, AttendanceType attendanceType);
+
+    List<AttendanceInfo> getMyAttendanceList(Long memberId);
+}

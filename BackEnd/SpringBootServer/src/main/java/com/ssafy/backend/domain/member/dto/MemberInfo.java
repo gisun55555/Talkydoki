@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9d30b7f6d11953e5ee7992966ef773ca6ac5c00357a489d02ae8fc65770559ee
-size 417
+package com.ssafy.backend.domain.member.dto;
+
+import com.ssafy.backend.domain.member.entity.enums.MemberRole;
+import com.ssafy.backend.global.component.oauth.vendor.enums.OAuthDomain;
+import lombok.Builder;
+
+@Builder
+public record MemberInfo(
+        Long id,
+        String email,
+        String name,
+        String nickname,
+        String profileImage,
+        OAuthDomain provider,
+        MemberRole role
+) {
+}
