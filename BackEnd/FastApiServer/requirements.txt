@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:41a5d3bbfb5ed07ebce56a0a5a0d658e3c98a7e1d9d09cde732701e6662c8b72
-size 853
+APScheduler==3.10.4
+Faker==24.3.0
+fastapi==0.110.0
+numpy==1.26.4
+pandas==2.2.1
+paramiko==3.4.0
+pytz==2024.1
+Requests==2.31.0
+scikit_learn==1.4.1.post1
+selenium==4.19.0
+SQLAlchemy==2.0.28
+SQLAlchemy_Utils==0.41.1
+webdriver_manager==4.0.1
