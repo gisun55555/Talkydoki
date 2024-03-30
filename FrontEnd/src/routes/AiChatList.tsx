@@ -1,17 +1,3 @@
-import AiChatCategory from "@/components/Aichat/AiChatCategory";
-import { Flexbox } from "@/styles/Aichat/AiChatList";
-import { Wrapper } from "@/styles/common/ui/container";
-
-type Props = {};
-
-function AiChatList({}: Props) {
-  return (
-    <Wrapper>
-      <Flexbox>
-        <AiChatCategory></AiChatCategory>
-      </Flexbox>
-    </Wrapper>
-  );
-}
-
-export default AiChatList;
+version https://git-lfs.github.com/spec/v1
+oid sha256:e47f84c150bc21d4f41bfefbaa996e0345742fa35b9b8716f5bb906a02203c2b
+size 377
