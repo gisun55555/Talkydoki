@@ -1,18 +1,3 @@
-import { ChatCard, ChatWrapper } from "@/styles/Aichat/AiChat";
-import ChatReportCarousel from "../components/Aichat/ChatReport/ChatReportCarousel";
-
-type Props = {};
-
-function AiChatReport({}: Props) {
-  return (
-    <>
-      <ChatWrapper>
-        <ChatCard>
-          <ChatReportCarousel />
-        </ChatCard>
-      </ChatWrapper>
-    </>
-  );
-}
-
-export default AiChatReport;
+version https://git-lfs.github.com/spec/v1
+oid sha256:c3229dac3e649ec884fe6e0d55507ba415fc717ece49f17051ba347eaa212cad
+size 531
