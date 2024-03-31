@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:109fa7f515e8b8a3eed1147ef832a6a163bfd12e834cd95173b3d6bad34f0125
-size 426
+import styled from "styled-components";
+
+export const Inner = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img.logo {
+    height: 80%;
+    cursor: pointer;
+  }
+
+  .menuToggle {
+    position: absolute;
+    left: 5vw;
+    font-size: 2rem;
+    color: var(--text);
+  }
+`;
