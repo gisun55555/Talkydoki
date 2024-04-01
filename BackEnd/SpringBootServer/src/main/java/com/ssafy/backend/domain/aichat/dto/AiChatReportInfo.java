@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:95c0d8d4ce0e556ad62d0d2ad7199df3f23333091de13e6b29e5fe4661b5385f
-size 208
+package com.ssafy.backend.domain.aichat.dto;
+
+import com.ssafy.backend.domain.aichat.entity.enums.AiChatCategory;
+
+import java.time.LocalDateTime;
+
+public record AiChatReportInfo(
+        Long id,
+        AiChatCategory category,
+        String conversationSummary,
+        Float vocabularyScore,
+        Float grammarScore,
+        Float wordScore,
+        Float FluencyScore,
+        Float ContextScore,
+        LocalDateTime createdAt
+
+) {
+}

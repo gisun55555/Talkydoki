@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5604cb551d7ee956d3b1759cbd50baf0708e7e6b47736ad6fc058cb19e2947c3
-size 380
+package com.ssafy.backend.domain.aichat.repository;
+
+import com.ssafy.backend.domain.aichat.entity.AiChatReport;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+import java.util.Optional;
+
+@Repository
+public interface AiChatReportRepository extends JpaRepository<AiChatReport, Long > {
+    Optional<AiChatReport> findByAiChatRoomId(Long aiChatRoomId);
+
+    Long countByAiChatRoom_MemberId(Long memberId);
+}
