@@ -1,22 +1,3 @@
-export interface reportDetailInterface {
-  id: number;
-  category: string;
-  conversationSummary: string;
-  vocabularyScore: number;
-  grammarScore: number;
-  wordScore: number;
-  FluencyScore: number;
-  ContextScore: number;
-}
-
-export interface chatWithFeedbackInterface {
-  chatId: number;
-  sender: string;
-  message: string;
-  feedback: string | null;
-}
-
-export interface chatReportResponseInterface {
-  reportDetail: reportDetailInterface;
-  chatsWithFeedback: chatWithFeedbackInterface[];
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:e1410cc3dccae203eafa64b90226295632d16feadc813e2ec733cb9b1da0763f
+size 732
