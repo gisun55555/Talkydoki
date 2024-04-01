@@ -1,22 +1,3 @@
-import styled from "styled-components";
-import { Card } from "../common/ui/card";
-
-export const KeywordChartWrapper = styled(Card)`
-  width: 70%;
-  height: 50vh;
-  margin: 0;
-
-  .msg {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0.5;
-  }
-
-  @media screen and (max-width: 992px) {
-    width: calc(100% - 3vw);
-    margin: 0;
-  }
-`;
+version https://git-lfs.github.com/spec/v1
+oid sha256:4d26ff3d94fdd819fdd905ee71026bed093421b1fae48095541e032e424e030b
+size 408
