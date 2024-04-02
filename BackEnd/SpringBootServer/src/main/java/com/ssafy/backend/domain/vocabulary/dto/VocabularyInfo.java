@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:240f6bc2cf197908d170ee3a947f79b51994c51209eca703e3d21b59d5231e45
-size 268
+package com.ssafy.backend.domain.vocabulary.dto;
+
+import lombok.Builder;
+
+@Builder
+public record VocabularyInfo(
+        Long id,
+        String japanese,
+        String japaneseRead,
+        String korean,
+        String type,
+        Long personalVocabularyId
+) {
+}
