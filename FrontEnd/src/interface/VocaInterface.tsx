@@ -1,25 +1,3 @@
-// 단어장 관련 인터페이스
-
-export interface VocaInterface {
-  id: number;
-  japanese: string;
-  japaneseRead: string;
-  korean: string;
-  type: string;
-}
-
-export interface PersonalVocaInterface {
-  personalVocabularyId: number;
-  japanese: string;
-  japaneseRead: string;
-  korean: string;
-  type: string;
-}
-
-export interface WordSearchInterface {
-  id?: number;
-  japanese: string;
-  japaneseRead: string;
-  korean?: string;
-  type?: string;
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:3f86818556cbab8816c14e4566205b11fc63fb5d734e737f5bebbbebfbd7936f
+size 487
