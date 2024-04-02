@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:44e136ec8a3497d4f6d9ca8d8183f7b4e041986341fce46348f69b5f13c0d2b0
-size 464
+package com.ssafy.backend.domain.news.repository;
+
+import com.ssafy.backend.domain.news.entity.News;
+import com.ssafy.backend.domain.news.entity.NewsKeywordMapping;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface NewsKeywordMappingRepository extends JpaRepository<NewsKeywordMapping, Long> {
+    List<NewsKeywordMapping> findByNews(News news);
+}
