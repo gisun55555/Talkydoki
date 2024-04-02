@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5452c007a6e8ff8e7cb0b8e57b81fbfae9bee47b47362c02f58fbc0034dc03f8
-size 261
+#!/bin/bash
+
+# 중복된 크론탭 작업
+DUPLICATE_CRON_JOB="/bin/bash /home/ubuntu/mysql_backup/backup_mysql.sh"
+
+# 크론탭 설정 수정
+crontab -l | grep -v "$DUPLICATE_CRON_JOB" | crontab -
+
+echo "크론탭에서 중복된 작업을 제거했습니다."
