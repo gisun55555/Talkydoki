@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:321a06b91ec3c08c27e751a8696169feba1fdf7bad2f735761413a6c88ad76bc
-size 436
+package com.ssafy.backend.domain.news.repository;
+
+import com.ssafy.backend.domain.news.entity.Keyword;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@Repository
+public interface KeywordRepository extends JpaRepository<Keyword, Long> {
+    boolean existsByJapanese(String japanese);
+
+    Optional<Keyword> findByJapanese(String japanese);
+}

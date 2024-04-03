@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cf51be49f6cf57c7a1bb810a9842fc616425a183794b5871546cb6b2435291c3
-size 324
+ALTER TABLE `news_keyword_history`
+DROP INDEX `UK_news_keyword_history_keyword_id`,
+DROP FOREIGN KEY `FK_news_keyword_history_keyword_id`,
+    ADD KEY `FK_news_keyword_history_keyword_id_new` (`keyword_id`),
+    ADD CONSTRAINT `FK_news_keyword_history_keyword_id_new` FOREIGN KEY (`keyword_id`) REFERENCES `keyword` (`id`);
