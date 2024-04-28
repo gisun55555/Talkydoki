@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:082d69dd386f5625f5ce88b7c66be4449e14de7a4b2034bab5f80ab314eb67e7
-size 964
+package com.ssafy.backend.domain.vocabulary.entity;
+
+import com.ssafy.backend.global.common.entity.BaseEntity;
+import jakarta.persistence.*;
+import lombok.*;
+
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
+@Entity
+public class Vocabulary extends BaseEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "INT UNSIGNED")
+    private Long id;
+
+    @Column(nullable = false, columnDefinition = "VARCHAR(50)")
+    private String japanese;
+
+    @Column(nullable = false, columnDefinition = "VARCHAR(200)")
+    private String korean;
+
+    @Column(nullable = false, columnDefinition = "VARCHAR(50)")
+    private String japaneseRead;
+
+    @Column(columnDefinition = "VARCHAR(50)")
+    private String type;
+
+    @OneToOne(mappedBy = "vocabulary", cascade = CascadeType.ALL, orphanRemoval = true)
+    private PersonalVocabulary personalVocabulary;
+}

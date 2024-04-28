@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9425abf03dae0726c2059fbef3ab34ec1e1766e9d7082e57ade6ef48ccaceab5
-size 680
+version: "0.0.0"
+
+services:
+  talkydoki_backend_fastapi:
+    container_name: talkydoki_backend_fastapi
+    build:
+      context: ./BackEnd/FastApiServer
+      dockerfile: Dockerfile
+    image: talkydoki_backend_fastapi_img
+    restart: always
+    ports:
+      - "8000:8000"
+    networks:
+      - talkydoki_net
+
+  talkydoki_backend_dataprocessing:
+    container_name: talkydoki_backend_dataprocessing
+    build:
+      context: ./BackEnd/DataProcessing
+      dockerfile: Dockerfile
+    image: talkydoki_backend_dataprocessing_img
+    restart: always
+    volumes:
+      - /home/ubuntu/newsData:/usr/src/app/Hadoop/data
+    networks:
+      - talkydoki_net
+
+networks:
+  talkydoki_net:

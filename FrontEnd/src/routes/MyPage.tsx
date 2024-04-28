@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fad3c4f80cd70b8f174a796831e1ceeb91586939b5f3deecc143347808f6e664
-size 600
+import MypageHeader from "@/components/MyPage/MypageHeader";
+import ReportVoca from "@/components/MyPage/ReportVoca";
+import Jandi from "@/components/MyPage/Jandi/Jandi";
+import { Wrapper } from "@/styles/common/ui/container";
+import { useGetUserAchievement } from "@/api/profileApi";
+
+function MyPage() {
+  const { data } = useGetUserAchievement();
+
+  if (!data) return;
+
+  return (
+    <Wrapper>
+      <MypageHeader
+        totalTalked={data.totalTalked}
+        totalShaded={data.totalShaded}
+      />
+      <Jandi />
+      <ReportVoca data={data} />
+    </Wrapper>
+  );
+}
+
+export default MyPage;

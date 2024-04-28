@@ -1,3 +1,36 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0d15ed20b36482a2abc1a7329af14831fe801bfb441ab79a2a3b1f30664e3f1a
-size 1196
+import { chatWithFeedbackInterface } from "@/interface/AiChatReportInterface";
+import ChatMessage from "../../ui/AiChatMessage";
+import chatbot from "@/assets/images/logo_face.png";
+import { MainContainer } from "@/styles/Aichat/ui/AiChat";
+
+function ChatReportChatFeadback({
+  chatsWithFeedback,
+}: {
+  chatsWithFeedback: chatWithFeedbackInterface[];
+}) {
+  return (
+    <MainContainer>
+      {chatsWithFeedback.map((chatWithFeedback) =>
+        chatWithFeedback.sender === "GPT" ? (
+          <div key={chatWithFeedback.chatId} className="message-item chatbot">
+            <div className="chatbot-icon-container">
+              <img src={chatbot} alt="Chatbot" className="chatbot-icon" />
+            </div>
+            <div className="message-item chat">
+              <ChatMessage japanese={chatWithFeedback.message} />
+            </div>
+          </div>
+        ) : (
+          <div key={chatWithFeedback.chatId} className="message-item self">
+            <ChatMessage
+              japanese={chatWithFeedback.message}
+              feadback={chatWithFeedback.feedback}
+            />
+          </div>
+        )
+      )}
+    </MainContainer>
+  );
+}
+
+export default ChatReportChatFeadback;

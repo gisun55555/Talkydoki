@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bfbe1df6dbc735285e829d52fef94af0f8ec5dedd82cb6f959fce13468aab1ff
-size 1201
+package com.ssafy.backend.global.component.oauth.vendor.naver.client;
+
+import com.ssafy.backend.global.component.oauth.vendor.naver.dto.NaverMemberResponse;
+import com.ssafy.backend.global.component.oauth.vendor.naver.dto.NaverToken;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.service.annotation.GetExchange;
+import org.springframework.web.service.annotation.PostExchange;
+
+import static org.springframework.http.HttpHeaders.AUTHORIZATION;
+import static org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED_VALUE;
+
+public interface NaverApiClient {
+    // 인증 코드 발송 후, 액세스 토큰 받아오기
+    @PostExchange(url = "https://nid.naver.com/oauth2.0/token", contentType = APPLICATION_FORM_URLENCODED_VALUE)
+    NaverToken fetchToken(@RequestParam(value = "params") MultiValueMap<String, String> params);
+
+    // 액세스 토큰으로 회원 정보 받아오기
+    @GetExchange("https://openapi.naver.com/v1/nid/me")
+    NaverMemberResponse fetchMember(@RequestHeader(name = AUTHORIZATION) String bearerToken);
+}
+

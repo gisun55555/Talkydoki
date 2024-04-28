@@ -1,3 +1,45 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b03c5f1eb2c05c15bbd02ecab4b05f0e250224b64361c963a236cfe497a8feff
-size 1302
+import React from "react";
+import { ProfileSection } from "@/styles/Menu/sidebar";
+import { getProfileImage } from "@/util/common/getFullUrl";
+import { useGetMember } from "@/api/memberApi";
+import { useNavigate } from "react-router-dom";
+import PersonIcon from "@mui/icons-material/Person";
+import { useIsMobile, useSetIsSidebarOpen } from "@/stores/displayStore";
+
+function SidebarProfile() {
+  const { data, isLoading } = useGetMember();
+  const navigate = useNavigate();
+  const isMobile = useIsMobile();
+  const setIsSidebarOpen = useSetIsSidebarOpen();
+
+  if (!data || isLoading) return <></>;
+
+  const { nickname, profileImage } = data;
+
+  return (
+    <ProfileSection>
+      <div
+        className="link"
+        onClick={() => {
+          if (isMobile) setIsSidebarOpen(false);
+          navigate("/userUpdate");
+        }}
+      >
+        <PersonIcon sx={{ fontSize: "12pt", marginRight: "2px" }} />
+        마이페이지
+      </div>
+
+      {/* 프로필사진 / 이름 / 로그아웃 */}
+      <div className="profileDiv">
+        <img
+          src={getProfileImage(profileImage)}
+          alt="profileImage"
+          className="profileImg"
+        />
+        <div className="name">{nickname}</div>
+      </div>
+    </ProfileSection>
+  );
+}
+
+export default React.memo(SidebarProfile);

@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1228f8dd011589e58cdd821e1d2498c22d08e7ecfc7d93e8874e3c00748fb43c
-size 754
+package com.ssafy.backend.domain.news.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
+@Entity
+public class Keyword {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "INT UNSIGNED")
+    private Long id;
+
+    @Column(nullable = false)
+    private String japanese;
+
+    private String korean;
+
+    @OneToMany(mappedBy = "keyword")
+    private List<NewsKeywordMapping> newsKeywordMappings = new ArrayList<>();
+
+    @OneToMany(mappedBy = "keyword")
+    private List<NewsKeywordHistory> newsKeywordHistories = new ArrayList<>();
+}

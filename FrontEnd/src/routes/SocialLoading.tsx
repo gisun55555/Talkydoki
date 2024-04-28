@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:649c92a8713dc5ecc497d6228fa41dc15d673745846429a721527c286ea81e6f
-size 622
+import { useFinishSocialLogin } from "@/api/memberApi";
+import { useEffect } from "react";
+import { useLocation, useParams } from "react-router-dom";
+
+type Props = {};
+function SocialLoading({}: Props) {
+  const location = useLocation();
+  const { provider } = useParams();
+  const queryParams = new URLSearchParams(location.search);
+  const code = queryParams.get("code") || "";
+
+  const { mutate: finishSocial } = useFinishSocialLogin();
+
+  useEffect(() => {
+    if (provider && code) {
+      finishSocial({ provider, code });
+    }
+  }, [provider, code, finishSocial]);
+  return <></>;
+}
+
+export default SocialLoading;

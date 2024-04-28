@@ -1,3 +1,65 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:46fa6a928659199306eff7e9c7dcc4de96ef5c06d8f79e088bcae0c0e4d308e0
-size 1672
+import { create } from "zustand";
+import { createJSONStorage, persist } from "zustand/middleware";
+
+// 다크모드
+
+interface DarkModeInterface {
+  isDark: boolean;
+  setIsDark: (by: boolean) => void;
+}
+
+const useDarkModeStore = create(
+  persist<DarkModeInterface>(
+    (set) => ({
+      isDark: false,
+      setIsDark: (by) =>
+        set(() => ({
+          isDark: by,
+        })),
+    }),
+    {
+      name: "display",
+      storage: createJSONStorage(() => sessionStorage),
+    }
+  )
+);
+
+export const useIsDark = () => useDarkModeStore((state) => state.isDark);
+export const useDisplayAction = () =>
+  useDarkModeStore((state) => state.setIsDark);
+
+// 반응형 사이드바 토글
+
+interface NavBarInterface {
+  isSidebarOpen: boolean;
+  setisSidebarOpen: (open: boolean) => void;
+}
+
+const useSideBarStore = create<NavBarInterface>((set) => ({
+  isSidebarOpen: window.innerWidth < 992 ? false : true,
+  setisSidebarOpen: (open) => set(() => ({ isSidebarOpen: open })),
+}));
+
+export const useIsSidebarOpen = () =>
+  useSideBarStore((state) => state.isSidebarOpen);
+export const useSetIsSidebarOpen = () =>
+  useSideBarStore((state) => state.setisSidebarOpen);
+
+// 모바일 환경인 지 (* <992px) 확인하는 Store
+
+interface MobileInterface {
+  isMobile: boolean;
+  setIsMobile: (mobile: boolean) => void;
+}
+
+const useMobileStore = create<MobileInterface>((set) => ({
+  isMobile: window.innerWidth < 992 ? true : false,
+  setIsMobile: (mobile) =>
+    set(() => ({
+      isMobile: mobile,
+    })),
+}));
+
+export const useIsMobile = () => useMobileStore((state) => state.isMobile);
+export const useSetIsMobile = () =>
+  useMobileStore((state) => state.setIsMobile);

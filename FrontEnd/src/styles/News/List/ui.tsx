@@ -1,3 +1,100 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3808f240e8be5cfdeaf274a562d4aecea6d05260313dc1c55f9381b3df0fa18d
-size 1900
+import { ThumbnailViewWrapper } from "@/styles/common/ui/thumbnailview";
+import styled from "styled-components";
+
+// 카테고리 버튼
+export const Category = styled.div<{ $isDark: boolean }>`
+  margin: 1vh 5px;
+  width: fit-content;
+  padding: 15px 20px;
+  height: 40px;
+  background-color: rgb(from var(--grey) r g b / 0.4);
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(from var(--grey) r g b / 0.3);
+  }
+
+  /* 선택된 카테고리 */
+  &.selected {
+    .icon {
+      color: var(--red);
+      margin-right: 5px;
+      opacity: 0.8;
+    }
+    padding-left: 20px;
+    background-color: rgb(from var(--main) r g b / 0.3);
+    color: ${(props) =>
+      `rgb(from var(${props.$isDark ? "--main" : "--main-dark"}) r g b / 1)`};
+  }
+`;
+
+export const NewsCard = styled.div<{ $index: number }>`
+  min-height: 50vh;
+  max-height: 51vh;
+  margin: 2vh 1vw;
+  padding: 0;
+  box-shadow: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+
+  &.left {
+    flex-grow: 1;
+    width: 40%;
+  }
+
+  &.right {
+    width: ${(props) => (props.$index == 1 ? `40%` : `53%`)};
+  }
+
+  ${ThumbnailViewWrapper} {
+    /* height: auto; */
+    flex-grow: 1;
+  }
+
+  .titleBox {
+    height: fit-content;
+    margin-top: 1vh 0;
+
+    .titleTrans {
+      word-break: keep-all;
+      font-size: 10pt;
+      opacity: 0;
+
+      &.show {
+        opacity: 0.8;
+      }
+    }
+    .releaseDate {
+      word-break: keep-all;
+      font-size: 10pt;
+      opacity: 0.5;
+    }
+
+    .title {
+      font-size: 16pt;
+      font-weight: 900;
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+    &.left,
+    &.right {
+      width: 100%;
+    }
+  }
+
+  &:hover,
+  &:active {
+    .title {
+      color: ${(props) =>
+        props.theme.mode == "light"
+          ? "var(--main-dark)"
+          : "var(--yellow-dark)"};
+    }
+  }
+`;

@@ -1,3 +1,128 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:de198a6863bb009bc7925e295bd33b946fc61bcd7f8056a782f69713402614c7
-size 4517
+server:
+  base-url: j10c107.p.ssafy.io
+  https-url: https://j10c107.p.ssafy.io
+
+spring:
+  servlet:
+    # file 업로드 관련 세팅 (명시적으로 설정 안할 시 Spring boot는 기본적으로 1MB로 설정됨)
+    multipart:
+      max-file-size: 10MB  # 최대 파일 크기
+      max-request-size: 10MB  # 최대 요청 크기
+
+  jpa:
+    open-in-view: false
+    defer-datasource-initialization: false  # flyway 관련 마이그레이션 이슈 -> false로 변경
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true             # 하이버네이트가 실행한 SQL을 출력할 때 보기 좋게 정렬
+        use_sql_comments: true
+        show_sql: true               # 하이버네이트가 실행한 SQL을 출력
+        jdbc:
+          batch_size: 100              #   insert/update 쿼리를 원하는 개수만큼 모아서 DB에 날릴 수 있는 옵션
+        default_batch_fetch_size: 100
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver  # DB 드라이버
+    url: jdbc:mysql://${server.base-url}:3306/talkydoki?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Seoul&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=true       # 데이터베이스 URL
+    username: ENC(f0r0VaK09iSvSITZnTanow==)                     # 데이터베이스 계정명
+    password: ENC(pcq3fN0xzVJNEAPYy/U+mQ==)                     # 데이터베이스 계정 비밀번호
+
+  # data_테이블명.sql 관련 실행 setting
+  # sql:
+  #   init:
+  #     mode: never
+  #     data-locations:
+  #       - 'classpath:/data_vocabulary.sql'
+  #       - 'classpath:/data_news.sql'
+  #       - 'classpath:/data_member.sql'
+  #       - 'classpath:/data_keyword.sql'
+  #       - 'classpath:/data_news_keyword_mapping.sql'
+
+  # NoSQL setting
+  data:
+    # Redis setting
+    redis:
+      host: ${server.base-url}
+      port: 6379
+
+  # rabbitMQ setting
+  rabbitmq:
+    host: ${server.base-url}
+    port: 15672
+    username: guest
+    password: guest
+
+  # Java Mail Sender setting (Google Mail)
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ENC(9zcJxzMJjdfsV97O7BJQvAtUCYHyAV12FmzBkDqpDW8=)
+    password: ENC(bad9dzuo4Yv1McadA8EOSn13JEEl/6UeyvsknQfCXyQ=)
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  flyway:
+      enabled: true
+      locations: classpath:db/migration
+      baseline-on-migrate: true
+      out-of-order: false
+
+# jwt setting
+jwt:
+  accessKey: ENC(V6FVgNoVoFGu9ToZlWzl8KKTUVlltnkhjOb7CsXowIwd5dzgdrmQY54fs81dt4b8k5cg7+etY5Zt1kyJq2XduisXKYMBkhtlNixuHGN8PY4RYeYPSsjdA/e8CkJfFcQoDMs6p63E6B4AXsB4pCwXNq6GK3FChCBHu+ZtwhcS2uvKEBHWZca1D/KZeIvuYBZFu74gDtLXECHQBfUBgGWGqQ==)
+  refreshKey: ENC(Ddc9rzvz2gZKRrXxLIROCjj9UJEEmARcByz/2wruK1XhxOW+lwpKdx6f6p71R1SZoNo/A5cbavkpizUt6q7xLTE4jsR1HuzeaLqX9uWuIUcAahCk2iycqN8zetYc+VO1BAGCo8qqJuQ1AnIod/IHd8VQ5l0jLDT0PLz/ifZR/Etcpq7YCqddGhkxfJljkwPGu475yl770UmpZcG4llPR2g==)
+  accessExpiration: PT420M  # 60분 (PT420M)
+  refreshExpiration: PT10080M  # 10080분 (7일) (PT10080M)
+
+# log 관리
+logging:
+  level:
+    org.hibernate:
+      type.descriptor.sql: trace
+      org.hibernate.SQLQuery: debug
+
+# OAUTH2.0 Setting
+oauth:
+  kakao:
+    client-id: ENC(E3lOnslHCdphnWGsPFa1Hm5QFIrmkY1zPXzHgHUA3YsAzvFGrBttgVsB9JXzynNY)   # REST API 키
+    client-secret: ENC(TYqE7s5TCJUb8/g+bxw/RWGWNJCGdmkVZbkQ969vCyq/l3B2rDRK3OsKf1dyuqUM)  # 보안 -> Client Secret 키
+    redirect-uri: ${server.https-url}/member/loading/kakao
+    scope:
+      - profile_nickname
+      - profile_image
+      - account_email
+#      - name
+
+  naver:
+    client-id: ENC(fgllU6jmkfqSW5Lbet7BdnTta/ycQfTAwj3mVFHrkko=)
+    client-secret: ENC(MNZuMPNyaH+s/6Fx8gOKJ2bKC+7tFMMu)
+    redirect_uri: ${server.https-url}/member/loading/naver
+    scope:
+      - nickname
+      - name
+      - email
+      - profile_image
+
+  google:
+    client_id: ENC(QKPQqGiQ64z9Aqor6E4+iqkn9coyITJcZJpnGofHf1rweieZI2PYBd80sfG4sRzJqgkMFqumuuvlHgCXoIZ5n7Ax2Wen8jYzt/9T2WmQ1LfQEdmdhLxaSg==)
+    client_secret: ENC(9s47E9126PeDwGGEQ3CEOxgisyvSvZEF8rGmM6ylTJ3YyAAJ4ES/lRkULyEamSgc)
+    redirect_uri: ${server.https-url}/member/loading/google
+    scope:
+      - profile
+      - email
+
+# firebase setting
+app:
+  firebase-configuration-file: classpath:serviceAccountKey.json
+  firebase-bucket: ENC(SLVtdlieYMj0aGKJbbtcNZ7jAOk5GmHVdu8mazNsH18=)
+
+# gpt-api setting
+openai:
+  key: ENC(QrUxpVFQUVlQx9zGMdFKUh4+HMsOPwGBmyzriWx3o/UydA9H7vqDwqmH2hq82b5S9H7tuV+/SFYyxiXOWFI7+A==)

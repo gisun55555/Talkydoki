@@ -1,3 +1,78 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d047ed0f12487830f9864dd128ac135ca29cdef49595665f65f36875b0eb86d6
-size 2227
+// import { useState } from "react";
+import { useGetArticle } from "@/api/newsApi";
+import { useLocation } from "react-router-dom";
+import {
+  NewsArticleWrapper,
+  NewsWrapper,
+} from "@/styles/News/Detail/container";
+import ArticleRead from "@/components/News/Detail/ArticleRead";
+import SideWidget from "@/components/News/Detail/SideWidget";
+import TitleSection from "@/components/News/Detail/TitleSection";
+import WordSearch from "@/components/News/Detail/ui/WordSearch";
+import { useEffect, useState } from "react";
+import ArticleSpeak from "@/components/News/Detail/ArticleSpeak";
+import { useButtonActions } from "@/stores/newsStore";
+import { BeatLoader } from "react-spinners";
+import { useTheme } from "styled-components";
+
+type Props = {};
+
+function NewsDetail({}: Props) {
+  const { state } = useLocation();
+  const newsId = state.newsId;
+  const [isReadMode, setIsReadMode] = useState(true);
+  const { data, isFetching } = useGetArticle(newsId);
+  const { setIsPlaying } = useButtonActions();
+  const theme = useTheme();
+
+  useEffect(() => {
+    setIsPlaying(false);
+  }, [isReadMode]);
+
+  if (isFetching || !data)
+    return (
+      <NewsWrapper>
+        <div className="loading">
+          <BeatLoader color={theme.grey.color} />
+        </div>
+      </NewsWrapper>
+    );
+
+  return (
+    <NewsWrapper>
+      <WordSearch />
+      <NewsArticleWrapper>
+        <TitleSection
+          title={data.fullTitle}
+          kortitle={data.titleTranslated}
+          url={data.srcOrigin}
+          date={data.writeDate}
+          images={data.newsImages}
+          summary={data.summary}
+          korSummary={data.summaryTranslated}
+        />
+        {isReadMode ? (
+          <ArticleRead
+            newsId={newsId}
+            news={data.content}
+            korNews={data.contentTranslated}
+            fullNews={data.fullNews}
+          />
+        ) : (
+          <ArticleSpeak
+            newsId={newsId}
+            news={data.content}
+            fullNews={data.fullNews}
+          />
+        )}
+      </NewsArticleWrapper>
+      <SideWidget
+        keyword={data.newsKeywords}
+        isReadMode={isReadMode}
+        setIsReadMode={setIsReadMode}
+      />
+    </NewsWrapper>
+  );
+}
+
+export default NewsDetail;

@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1b955d189e956c1b606f7361c4771cc5d8ae056bd78d57ea5dad24b10f35c6b6
-size 575
+package com.ssafy.backend.domain.news.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
+@Entity
+public class ShadowingEvaluation {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "INT UNSIGNED")
+    private Long id;
+
+    @Column(nullable = false)
+    private Double score;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "news_shadowing_id")
+    private NewsShadowing newsShadowing;
+}

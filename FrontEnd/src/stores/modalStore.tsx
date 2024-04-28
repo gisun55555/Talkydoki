@@ -1,3 +1,50 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a3fdb795499e6d1d1d253c3716347e90997eddba1c0d37fbd58937e548def4c8
-size 1561
+import { create } from "zustand";
+
+interface ModalInterface {
+  isModalOn: boolean;
+  setIsModalOn: (on: boolean) => void;
+  modalContent: {
+    message: string | JSX.Element;
+    onSuccess: () => void;
+    isInfo: boolean;
+    isReadOnly?: boolean;
+  };
+  setModalContent: (newContent: {
+    message: string | JSX.Element;
+    onSuccess?: () => void;
+    isInfo: boolean;
+    isReadOnly?: boolean;
+  }) => void;
+}
+
+const useModalStore = create<ModalInterface>((set) => ({
+  // 모달 활성화 여부
+  isModalOn: false,
+
+  // 모달 활성화 토글 (true, false 받음)
+  setIsModalOn: (on) => set(() => ({ isModalOn: on })),
+
+  // 모달 내용물 (message: 메세지, onSuccess: 확인 눌렀을 경우 실행할 함수, isInfo: 정보 안내용 팝업인지 여부, isReadOnly: 확인버튼 없애기)
+  modalContent: { message: "", onSuccess: () => {}, isInfo: false },
+
+  // 모달 내용물 set 함수
+  setModalContent: (newContent) =>
+    set(() => ({
+      modalContent: {
+        message: newContent.message,
+        onSuccess:
+          newContent.onSuccess != undefined ? newContent.onSuccess : () => {},
+        isInfo: newContent.isInfo,
+        isReadOnly: newContent.isReadOnly,
+      },
+    })),
+}));
+
+export const useIsModalOn = () => useModalStore((state) => state.isModalOn);
+export const useSetISModalOn = () =>
+  useModalStore((state) => state.setIsModalOn);
+
+export const useModalContent = () =>
+  useModalStore((state) => state.modalContent);
+export const useSetModalContent = () =>
+  useModalStore((state) => state.setModalContent);

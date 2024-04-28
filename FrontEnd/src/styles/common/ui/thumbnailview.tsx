@@ -1,3 +1,59 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c9380a8b6a1c7f8d6796cf6cfce9ecf421e8ba755ee40d218c15b06238e964cc
-size 1233
+import styled from "styled-components";
+
+// 마우스를 움직이면 이미지가 넘어가는 컨테이너
+export const ThumbnailViewWrapper = styled.div<{
+  $length: number;
+  $isMobile: boolean;
+  $isThumb: boolean;
+}>`
+  /* width: 100%; */
+  height: ${(props) => !props.$isThumb && `50vh`};
+  margin: ${(props) => !props.$isThumb && `3vh 1vw`};
+  min-height: 35vh;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+
+  .navigator {
+    position: absolute;
+    width: 100%;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    display: ${(props) => props.$isMobile && `none`};
+
+    .dot {
+      margin: 0 2px;
+      width: 7pt;
+      height: 7pt;
+      background-color: var(--bg-modal);
+      opacity: 0.5;
+      border-radius: 50%;
+      border: 1px solid var(--grey);
+
+      &.selected {
+        opacity: 1;
+      }
+    }
+  }
+
+  .track {
+    display: flex;
+    width: ${(props) => `${props.$length * 100}%`};
+    height: 100%;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      filter: ${(props) => props.$isThumb && ` brightness(0.8)`};
+    }
+  }
+
+  &:hover {
+    & img {
+      filter: ${(props) => props.$isThumb && ` brightness(1)`};
+    }
+  }
+`;

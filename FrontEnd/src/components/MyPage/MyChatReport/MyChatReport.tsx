@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7daa67f7c07c08b0d445ae3a37c80f39c95bb9023e5dd9681b84d0f5ce38a773
-size 618
+import { Wrapper } from "@/styles/common/ui/container";
+import MyReportCard from "./MyReportCard";
+import { ReportContainer } from "@/styles/Mypage/ui";
+import { NegativeTitle } from "@/styles/common/ui/text";
+import { useGetAllReport } from "@/api/aiChatReportApi";
+
+function MyChatReport() {
+  const { data } = useGetAllReport();
+
+  return (
+    <Wrapper>
+      <NegativeTitle>AI 채팅 목록</NegativeTitle>
+
+      <ReportContainer>
+        {data?.map((report) => (
+          <MyReportCard key={report.id} report={report} />
+        ))}
+      </ReportContainer>
+    </Wrapper>
+  );
+}
+
+export default MyChatReport;

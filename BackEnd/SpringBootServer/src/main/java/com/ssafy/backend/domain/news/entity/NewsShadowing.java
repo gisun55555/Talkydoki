@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1c8f39b388e850e482f044be9f9d22c0a4825f2d9daaf605f44291b68a4354cf
-size 943
+package com.ssafy.backend.domain.news.entity;
+
+import com.ssafy.backend.domain.member.entity.Member;
+import com.ssafy.backend.global.common.entity.BaseEntity;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
+@Entity
+public class NewsShadowing extends BaseEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "INT UNSIGNED")
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "news_id")
+    private News news;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
+
+    @OneToMany(mappedBy = "newsShadowing", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ShadowingEvaluation> shadowingEvaluations = new ArrayList<>();
+}

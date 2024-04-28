@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1a3ee43a7c6653b0e37a58d8ec00ddc97ba30b530b9c2c832ed93baa1d7e7da2
-size 599
+package com.ssafy.backend.domain.news.repository;
+
+import com.ssafy.backend.domain.news.entity.NewsKeywordHistory;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public interface NewsKeywordHistoryRepository extends JpaRepository<NewsKeywordHistory, Long> {
+    boolean existsByKeywordIdAndMemberId(Long keywordId, Long memberId);
+
+    NewsKeywordHistory findByKeywordIdAndMemberId(Long keywordId, Long memberId);
+
+    List<NewsKeywordHistory> findByMemberIdOrderByReadCountDesc(Long memberID);
+}

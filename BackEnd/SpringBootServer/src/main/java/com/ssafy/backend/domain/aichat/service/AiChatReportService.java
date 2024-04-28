@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:29ff0b938cc2c3a64a68be0044d778a1babe84f54ff79b455e204c8be045b0c3
-size 758
+package com.ssafy.backend.domain.aichat.service;
+
+import com.ssafy.backend.domain.aichat.dto.AiChatReportCreateRequest;
+import com.ssafy.backend.domain.aichat.dto.AiChatReportInfo;
+import com.ssafy.backend.domain.aichat.dto.FullReportInfo;
+import jakarta.transaction.Transactional;
+import reactor.core.publisher.Mono;
+
+import java.util.List;
+
+public interface AiChatReportService {
+    @Transactional
+    Mono<Long> createReport(Long memberId, Long roomId);
+
+    FullReportInfo getReportDetail(Long reportId);
+
+    List<AiChatReportInfo> getUserReports(Long memberId);
+
+    Mono<Long> saveReport(Long roomId, AiChatReportCreateRequest reportRequest);
+
+    Mono<Long> getAiChatReportCreateResponseMono(Long roomId, AiChatReportCreateRequest reportRequest);
+}

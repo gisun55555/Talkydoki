@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0825cefb1c7c151258d5971fdfaa0df993b1470e651c503174a099def49d1880
-size 772
+version: "0.0.0"
+
+services:
+
+  talkydoki_redis:
+    image: redis
+    container_name: talkydoki_redis
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - talkydoki_db_net
+
+  talkydoki_rabbitmq:
+    container_name: talkydoki_rabbitmq
+    build:
+      context: .
+      dockerfile: rabbitmq.Dockerfile
+    image: talkydoki_rabbitmq_img
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+      - "61613:61613"
+    environment:
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
+    command: [ "rabbitmq-server" ]
+    healthcheck:
+      test: [ "CMD", "rabbitmqctl", "status" ]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+    restart: unless-stopped
+    networks:
+      - talkydoki_db_net
+
+networks:
+  talkydoki_db_net:

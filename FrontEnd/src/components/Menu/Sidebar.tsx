@@ -1,3 +1,42 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c60c363cb619074638daf76bce2f2ee1d72bf211b43f516b3052637428c49466
-size 1132
+import { useEffect } from "react";
+import SidebarProfile from "./SidebarItems/SidebarProfile";
+
+import { SidebarWrapper } from "@/styles/common/ui/container";
+import { SidebarBackground } from "@/styles/Menu/sidebar";
+import {
+  useIsMobile,
+  useIsSidebarOpen,
+  useSetIsSidebarOpen,
+} from "@/stores/displayStore";
+import Menus from "./SidebarItems/Menus";
+import SidebarTitle from "./SidebarItems/SidebarTitle";
+
+function Sidebar() {
+  const isSidebarOpen = useIsSidebarOpen();
+  const setIsSidebarOpen = useSetIsSidebarOpen();
+  const isMobile = useIsMobile();
+
+  useEffect(() => {
+    if (!isMobile) {
+      setIsSidebarOpen(true);
+    } else {
+      setIsSidebarOpen(false);
+    }
+  }, [isMobile]);
+
+  return (
+    <>
+      <SidebarWrapper style={isSidebarOpen ? { left: 0 } : { left: "-300px" }}>
+        <SidebarTitle />
+        <SidebarProfile />
+        <Menus />
+      </SidebarWrapper>
+      {isMobile && isSidebarOpen ? (
+        // 모바일버전 사이드바 활성화 시 화면 어둡게
+        <SidebarBackground onClick={() => setIsSidebarOpen(false)} />
+      ) : null}
+    </>
+  );
+}
+
+export default Sidebar;

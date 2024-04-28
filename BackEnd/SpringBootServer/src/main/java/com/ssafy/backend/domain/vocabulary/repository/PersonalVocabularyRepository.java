@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f88053c6bcaeb0ef43bfd39066493bf455f2cb2aae4fbba677f899f4bdc62ffa
-size 986
+package com.ssafy.backend.domain.vocabulary.repository;
+
+import com.ssafy.backend.domain.member.entity.Member;
+import com.ssafy.backend.domain.vocabulary.entity.PersonalVocabulary;
+import com.ssafy.backend.domain.vocabulary.entity.Vocabulary;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+
+
+@Repository
+public interface PersonalVocabularyRepository extends JpaRepository<PersonalVocabulary, Long>, PersonalVocabularyRepositoryCustom {
+    boolean existsByMemberAndVocabulary(Member member, Vocabulary vocabulary);
+
+    @Modifying
+    @Query("delete from PersonalVocabulary pv where pv.id = :personalVocabularyId and pv.member.id = :memberId")
+    int deleteByIdAndMemberId(Long personalVocabularyId, Long memberId);
+
+    PersonalVocabulary findByMemberAndVocabulary(Member member, Vocabulary vocabulary);
+}

@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2f7d18fdf9e03c10dd204a90452abd5dd7564c65627164b7c9a351ded5eafa11
-size 670
+import { create } from "zustand";
+interface AiChatInterace {
+  globalIsTranslate: boolean;
+  setGlobalIsTranslate: () => void;
+  globalIsTip: boolean;
+  setGlobalIstip: () => void;
+  globalIsFeadback: boolean;
+  setglobalIsFeadback: () => void;
+}
+
+export const useAiChatStore = create<AiChatInterace>((set) => ({
+  globalIsTranslate: true,
+  setGlobalIsTranslate: () =>
+    set((state) => ({ globalIsTranslate: !state.globalIsTranslate })),
+  globalIsTip: true,
+  setGlobalIstip: () => set((state) => ({ globalIsTip: !state.globalIsTip })),
+  globalIsFeadback: true,
+  setglobalIsFeadback: () =>
+    set((state) => ({ globalIsFeadback: !state.globalIsFeadback })),
+}));

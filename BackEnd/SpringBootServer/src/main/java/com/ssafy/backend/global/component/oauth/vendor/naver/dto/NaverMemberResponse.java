@@ -1,3 +1,44 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cff5e36c4ced537f5ea93168110e07906db1e3853f38ad65d4d684c98272545e
-size 1307
+package com.ssafy.backend.global.component.oauth.vendor.naver.dto;
+
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.ssafy.backend.domain.member.entity.Member;
+import com.ssafy.backend.domain.member.entity.enums.MemberRole;
+import com.ssafy.backend.global.component.oauth.vendor.enums.OAuthDomain;
+
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+public record NaverMemberResponse(
+        String resultcode,
+        String message,
+        Response response
+) {
+
+    public Member toDomain() {
+        return Member.builder()
+                .email(response.email)
+                .name(response.name)
+                .nickname(response.nickname)
+                .profileImage(response.profileImage)
+                .role(MemberRole.USER)
+                .oAuthDomain(OAuthDomain.NAVER)
+                .build();
+    }
+
+
+    @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+    public record Response(
+            String id,
+            String nickname,
+            String name,
+            String email,
+            String gender,
+            String age,
+            String birthday,
+            String profileImage,
+            String birthyear,
+            String mobile
+    ) {
+    }
+
+
+}

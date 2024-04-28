@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7d743b7d8b7bdeda90c3b90c80e83bade5f3ca1179a98d945d7ae711183dbf6c
-size 934
+import { ObserverWrapper } from "@/styles/common/ui/container";
+import { useEffect, useRef } from "react";
+import CircularProgress from "@mui/material/CircularProgress";
+
+type Props = {
+  observerCallback: IntersectionObserverCallback;
+  isFetching: boolean;
+  isLoading: boolean;
+};
+
+function InfiniteObserver({ observerCallback, isFetching, isLoading }: Props) {
+  const observerRef = useRef<HTMLDivElement>(null);
+
+  const observer = new IntersectionObserver(observerCallback, {
+    threshold: 0.3,
+  });
+
+  useEffect(() => {
+    if (!observerRef.current) return;
+    observer.observe(observerRef.current);
+
+    return () => {
+      if (!observerRef.current) return;
+      return observer.unobserve(observerRef.current);
+    };
+  }, []);
+
+  return (
+    <ObserverWrapper ref={observerRef}>
+      {isFetching || isLoading ? <CircularProgress color="purple" /> : null}
+    </ObserverWrapper>
+  );
+}
+
+export default InfiniteObserver;

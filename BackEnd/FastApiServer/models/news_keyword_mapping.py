@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:74da877ddb8c35d1844e76cea3dae2a87d21b6da257ea67d0edfd1a2bcffb264
-size 543
+from sqlalchemy import Column, Integer, Float, ForeignKey
+from sqlalchemy.orm import relationship
+from database import Base
+
+class NewsKeywordMapping(Base):
+    __tablename__ = "news_keyword_mapping"
+    id = Column(Integer, primary_key=True, index=True)
+    weight = Column(Float)
+    news_id = Column(Integer, ForeignKey("news.id"))
+    news = relationship("News", back_populates="news_keyword_mappings")
+    keyword_id = Column(Integer, ForeignKey("keyword.id"))
+    keyword = relationship("Keyword", back_populates="news_keyword_mappings")

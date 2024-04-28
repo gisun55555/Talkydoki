@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:684ecdca8407b18694db2caf62bbb8577fe23a2dbbf9e542848b51026245ee8f
-size 973
+import React from "react";
+import { NavbarWrapper } from "@/styles/common/ui/container";
+import { Inner } from "@/styles/Menu/navbar";
+import Logo from "@/assets/images/logo_face2.png";
+import { useIsSidebarOpen, useSetIsSidebarOpen } from "@/stores/displayStore";
+import MenuIcon from "@mui/icons-material/Menu";
+import { useNavigate } from "react-router-dom";
+
+function Navbar() {
+  const isSidebarOpen = useIsSidebarOpen();
+  const toggleSidebar = useSetIsSidebarOpen();
+  const naviagte = useNavigate();
+
+  return (
+    <NavbarWrapper>
+      <Inner>
+        <MenuIcon
+          className="menuToggle"
+          onClick={() => toggleSidebar(!isSidebarOpen)}
+        />
+        <img
+          className="logo"
+          src={Logo}
+          alt="logo"
+          onClick={() => naviagte("/")}
+        />
+        {/* <button onClick={() => toggleSidebar(!isSidebarOpen)}>asdfdsfdf</button> */}
+      </Inner>
+    </NavbarWrapper>
+  );
+}
+
+export default React.memo(Navbar);

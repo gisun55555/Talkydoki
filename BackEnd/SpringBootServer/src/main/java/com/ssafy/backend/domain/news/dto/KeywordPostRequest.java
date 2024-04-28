@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:11748de6ece2c6d0b31b64dd63da7a088bae1b997d444abc3adc8e63c8eae836
-size 579
+package com.ssafy.backend.domain.news.dto;
+
+import com.ssafy.backend.domain.news.entity.Keyword;
+import jakarta.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class KeywordPostRequest {
+
+    @NotBlank(message = "일본어는 필수 입력값입니다.")
+    private String japanese;
+
+    public Keyword toEntity() {
+        return Keyword.builder()
+                .japanese(japanese)
+                .build();
+    }
+}

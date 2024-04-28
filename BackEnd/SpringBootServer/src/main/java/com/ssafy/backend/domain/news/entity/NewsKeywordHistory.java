@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:59aaa6647e2ce3cc471aa7f3ca3a1ee1fd9fa3ea9c728b0f63649889be1b5940
-size 758
+package com.ssafy.backend.domain.news.entity;
+
+import com.ssafy.backend.domain.member.entity.Member;
+import com.ssafy.backend.global.common.entity.BaseEntity;
+import jakarta.persistence.*;
+import lombok.*;
+
+@Getter
+@Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
+@Entity
+public class NewsKeywordHistory extends BaseEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "INT UNSIGNED")
+    private Long id;
+
+    @Column(nullable = false)
+    private Integer readCount = 0;
+
+    @ManyToOne
+    @JoinColumn(name = "member_id")
+    private Member member;
+
+    @ManyToOne
+    @JoinColumn(name = "keyword_id")
+    private Keyword keyword;
+}

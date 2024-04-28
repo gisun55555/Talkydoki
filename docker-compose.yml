@@ -1,3 +1,34 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:152df368bcd0c14af42378b21352d452f74a00dfcd729628c77090b0a4058b1e
-size 718
+version: "0.0.0"
+
+services:
+  talkydoki_frontend:
+    container_name: talkydoki_frontend
+    build:
+      context: ./FrontEnd
+      dockerfile: Dockerfile
+    image: talkydoki_frontend_img
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/letsencrypt:/etc/nginx/ssl
+    networks:
+      - talkydoki_net
+
+  talkydoki_backend_springboot:
+    container_name: talkydoki_backend_springboot
+    build:
+      context: ./BackEnd/SpringBootServer
+      dockerfile: Dockerfile
+    image: talkydoki_backend_springboot_img
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      - jasypt.encryptor.key=ssafy
+    networks:
+      - talkydoki_net
+
+networks:
+  talkydoki_net:
